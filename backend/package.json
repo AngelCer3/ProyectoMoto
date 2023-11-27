@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "creacion de una API con nodeJS",
+  "description": "creacion de una API con nodeJS BY Juan",
   "main": "index.js",
-  "author": "Angel",
+  "author": "Juan",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon index.js",
