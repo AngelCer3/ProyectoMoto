@@ -25,15 +25,15 @@ export default function Moto({ moto }: Props) {
   };
   return (
     <div className="container flex flex-col mx-auto items-center justify-center mb-22 text-center font-bold my-20">
-      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-cyan-600 dark:border-cyan-500 text-center">
         <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
           Moto
         </h3>
         <div className="mb-4">
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-4"
                 htmlFor=""
               >
                 Marca
@@ -46,7 +46,7 @@ export default function Moto({ moto }: Props) {
                 value={datos.marca}
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -62,8 +62,8 @@ export default function Moto({ moto }: Props) {
               />
             </div>
           </div>
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -78,7 +78,7 @@ export default function Moto({ moto }: Props) {
                 readOnly
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -110,7 +110,7 @@ export default function Moto({ moto }: Props) {
               readOnly
             />
           </div>
-          <div className="sm:col-span-4 justify-center">
+          <div>
             <label
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
               htmlFor=""
@@ -124,10 +124,19 @@ export default function Moto({ moto }: Props) {
               value={datos.tipo}
             />
           </div>
+          <div>
+            <button
+              type="button"
+              className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 mt-3"
+              onClick={() => handleEliminarDatos(datos._id)}
+            >
+              Eliminar Datos
+            </button>
+          </div>
         </div>
         <div className="relative overflow-x auto mt-5">
-          <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-red-50 dark:bg-gray-700 dark:text-gray-400">
+          <table>
+            <thead>
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Ver
@@ -147,7 +156,7 @@ export default function Moto({ moto }: Props) {
             <tbody>
               {servicios.map((servicio) => (
                 <>
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <tr>
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -155,7 +164,7 @@ export default function Moto({ moto }: Props) {
                       <Link href={`/servicios/${servicio._id}`}>
                         <button
                           type="button"
-                          className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                          className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                         >
                           Ver
                         </button>
@@ -169,15 +178,6 @@ export default function Moto({ moto }: Props) {
               ))}
             </tbody>
           </table>
-        </div>
-        <div>
-          <button
-            type="button"
-            className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-3"
-            onClick={() => handleEliminarDatos(datos._id)}
-          >
-            Eliminar Datos
-          </button>
         </div>
       </div>
     </div>

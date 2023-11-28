@@ -29,14 +29,14 @@ export default function Cliente({ cliente }: Props) {
   }
   return (
     <div className="container flex flex-col mx-auto items-center justify-center mb-22 text-center font-bold my-20">
-      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 text-center">
        
           <h1 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
             Actualizar Cliente
           </h1>
           <div className="mb-4">
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -51,7 +51,7 @@ export default function Cliente({ cliente }: Props) {
                   value={datosCliente.nombres}
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -67,8 +67,8 @@ export default function Cliente({ cliente }: Props) {
                 />
               </div>
             </div>
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -83,7 +83,7 @@ export default function Cliente({ cliente }: Props) {
                   value={datosCliente.telefono}
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -115,7 +115,7 @@ export default function Cliente({ cliente }: Props) {
                 value={datosCliente.direccion}
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -130,15 +130,15 @@ export default function Cliente({ cliente }: Props) {
                 value={datosCliente.whatsapp}
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
-              <button className="bg-cyan-500 rounded text-white py-2 px-3 mt-3" onClick={handleActualizarUsuario}>
-                Actualizar Contacto
+            <div>
+              <button className="bg-gray-700 rounded text-white py-2 px-3 mt-3" onClick={handleActualizarUsuario}>
+                Actualizar Informacion
               </button>
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <Link href="/clientes">
-                <button className="bg-rose-500 rounded text-white py-2 px-3 mt-3">
-                  Regresar
+                <button className="bg-gray-500 rounded text-white py-2 px-3 mt-3">
+                  Retornar a la tabla
                 </button>
               </Link>
             </div>

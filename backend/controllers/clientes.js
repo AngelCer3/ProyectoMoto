@@ -1,3 +1,5 @@
+
+
 const Cliente = require("../models/Cliente");
 const Moto = require("../models/Moto");
 const Servicio = require("../models/Servicio");
@@ -141,7 +143,6 @@ const eliminarCliente = async(req, res) => {
             ok: true,
             msg: "Cliente eliminado"
         })
-
 
     }catch(error){
         console.log(error)

@@ -14,14 +14,14 @@ export default function servicio({servicio}: Props) {
 
   return (
     <div className="container flex flex-col mx-auto items-center justify-center mb-22 text-center font-bold my-20">
-      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 text-center">
         <form action="">
           <h1 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
             Cliente
           </h1>
           <div className="mb-4">
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -36,7 +36,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -52,8 +52,8 @@ export default function servicio({servicio}: Props) {
                 />
               </div>
             </div>
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -68,7 +68,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -100,7 +100,7 @@ export default function servicio({servicio}: Props) {
                 readOnly
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -119,14 +119,13 @@ export default function servicio({servicio}: Props) {
         </form>
       </div>
       {/* Parte Motos*/}
-      <div className="mx-auto mt-4 p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
-        <form action="">
+      <div className="mx-auto mt-4 p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 text-center">
           <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
             Moto
           </h3>
           <div className="mb-4">
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -141,7 +140,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -157,8 +156,8 @@ export default function servicio({servicio}: Props) {
                 />
               </div>
             </div>
-            <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-              <div className="sm:col-span-4 justify-center">
+            <div>
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -173,7 +172,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -221,18 +220,16 @@ export default function servicio({servicio}: Props) {
               />
             </div>
           </div>
-        </form>
       </div>
       {/* Parte Servicio */}
-      <div className="mx-auto mt-4 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="mx-auto mt-4 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 text-center">
         <div>
-          <form action="">
             <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
               Servicio
             </h3>
             <div className="mb-4">
-              <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                <div className="sm:col-span-4 justify-center">
+              <div>
+                <div>
                   <label
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                     htmlFor=""
@@ -247,7 +244,7 @@ export default function servicio({servicio}: Props) {
                     readOnly
                   />
                 </div>
-                <div className="sm:col-span-4 justify-center">
+                <div>
                   <label
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                     htmlFor=""
@@ -263,8 +260,8 @@ export default function servicio({servicio}: Props) {
                   />
                 </div>
               </div>
-              <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                <div className="sm:col-span-4 justify-center">
+              <div>
+                <div>
                   <label
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                     htmlFor=""
@@ -279,7 +276,7 @@ export default function servicio({servicio}: Props) {
                     readOnly
                   />
                 </div>
-                <div className="sm:col-span-4 justify-center">
+                <div>
                   <label
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                     htmlFor=""
@@ -311,7 +308,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                   htmlFor=""
@@ -326,7 +323,7 @@ export default function servicio({servicio}: Props) {
                   readOnly
                 />
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   htmlFor=""
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
@@ -342,7 +339,7 @@ export default function servicio({servicio}: Props) {
                 />
               </div>
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 htmlFor=""
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
@@ -358,10 +355,9 @@ export default function servicio({servicio}: Props) {
               />
             </div>
 
-            <button onClick={() => pdfGenerator({id, nombres, apellidos, email, telefono, whatsapp, direccion,marca, modelo, cilindrada, tipo, placa, color, fecha,anticipo, kilometraje, combustible, presupuesto, concepto, observaciones})} className="bg-rose-500 rounded text-white py-2 px-3 mt-3">
-              Imprimir Comprobante
+            <button onClick={() => pdfGenerator({id, nombres, apellidos, email, telefono, whatsapp, direccion,marca, modelo, cilindrada, tipo, placa, color, fecha,anticipo, kilometraje, combustible, presupuesto, concepto, observaciones})} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 mt-3">
+              Pedir Comprobante
             </button>
-          </form>
         </div>
       </div>
     </div>

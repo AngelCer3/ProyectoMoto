@@ -33,57 +33,58 @@ export const pdfGenerator = async({id, nombres, apellidos, email, telefono, what
 
     const pdf = new jsPDF("portrait","cm", "letter", true)
 
-    await pdf.addImage("/img/Logo_Moto-modified.png", "PNG", ancho/2 - 1.25, marginY , 2.5, 2.55)
+    await pdf.addImage("/img/Logo-Moto.png", "PNG", ancho/2 - 1.25, marginY , 2.5, 2.55)
 
-    pdf.setFont("Helvetica", "bold");
-    pdf.setTextColor("#e76f51");
-    pdf.setFontSize(16);
+    pdf.setFont("Comic-Sans", "bold");
+    pdf.setTextColor("#0a0908");
+    pdf.setFontSize(20);
 
-    pdf.text("Taller de Motos Engels", ancho/2, marginY-0.5,{align: "center"});
+    pdf.text("Motorcycle Workshop", ancho/2, marginY-0.5,{align: "center"});
 
-    pdf.line(marginX, marginY + 2.7, ancho-marginX, marginY + 2.7, "f");
+    
 
-    pdf.setTextColor("#212529");
+    pdf.setTextColor("#0a0908");
 
-    pdf.setFontSize(12);
+    pdf.setFontSize(14);
 
-    pdf.text("DATOS DEL CLIENTE", marginX, marginY + 3.1 , {align: "left"});
-    pdf.text(`Nombre del Cliente: ${nombres} ${apellidos}`, marginX, marginY + 3.6, {align: "left"});
-    pdf.text(`Direccion: ${direccion}`, marginX, marginY + 4.1, {align: "left"});
-    pdf.text(`Telefono: ${telefono}`, marginX, marginY + 4.6, {align: "left"});
-    pdf.text(`WhatsApp: ${whatsapp}`, marginX, marginY + 5.1, {align: "left"});
-    pdf.text(`Correo: ${email}`, marginX, marginY + 5.6, {align: "left"});
+    pdf.text("Datos del cliente", marginX + 7.80, marginY + 3.1 , {align: "center"});
+    pdf.text(`Nombre del Cliente: ${nombres}`, marginX + 7.80, marginY + 3.6, {align: "center"});
+    pdf.text(`Apellidos: ${apellidos}`,marginX + 7.80, marginY + 4.1, {align: "center"})
+    pdf.text(`Direccion: ${direccion}`, marginX + 7.80, marginY + 4.6, {align: "center"});
+    pdf.text(`Telefono: ${telefono}`, marginX + 7.80, marginY + 5.1, {align: "center"});
+    pdf.text(`Correo: ${email}`, marginX + 7.80, marginY + 5.6, {align: "center"});
+    pdf.text(`WhatsApp: ${whatsapp}`, marginX + 7.80, marginY + 6.1, {align: "center"});
 
-    pdf.line(marginX, marginY + 6, ancho-marginX, marginY + 6, "f");
 
-    pdf.setTextColor("#212529");
 
-    pdf.setFontSize(12);
+   
 
-    pdf.text("DATOS DE LA MOTO", marginX, marginY + 6.6, {align: "left"});
-    pdf.text(`Marca: ${marca}`, marginX, marginY + 7.1, {align: "left"});
-    pdf.text(`Modelo: ${modelo}`, marginX, marginY + 7.6, {align: "left"});
-    pdf.text(`Cilindrada: ${cilindrada}`, marginX, marginY + 8.1, {align: "left"});
-    pdf.text(`Color: ${color}`, marginX, marginY + 8.6, {align: "left"});
-    pdf.text(`Tipo: ${tipo}`, marginX, marginY + 9.1, {align: "left"});
-    pdf.text(`Placa: ${placa}`, marginX, marginY + 9.6, {align: "left"});
+    pdf.setFontSize(14);
 
-    pdf.line(marginX, marginY + 10, ancho-marginX, marginY + 10, "f");
+    pdf.text("Datos de motocicleta", marginX + 7.80, marginY + 7.1, {align: "center"});
+    pdf.text(`Marca: ${marca}`, marginX + 7.80, marginY + 7.6, {align: "center"});
+    pdf.text(`Modelo: ${modelo}`, marginX + 7.80, marginY + 8.1, {align: "center"});
+    pdf.text(`Cilindrada: ${cilindrada}`, marginX + 7.80, marginY + 8.6, {align: "center"});
+    pdf.text(`Color: ${color}`, marginX + 7.80, marginY + 9.1, {align: "center"});
+    pdf.text(`Tipo: ${tipo}`, marginX + 7.80, marginY + 9.6, {align: "center"});
+    pdf.text(`Placa: ${placa}`, marginX + 7.80, marginY + 10.1, {align: "center"});
 
-    pdf.setTextColor("#212529");
+    
 
-    pdf.setFontSize(12);
+    
 
-    pdf.text("DATOS DEL SERVICIO", marginX, marginY + 10.6, {align: "left"});
-    pdf.text(`Fecha del servicio: ${fecha}`, marginX, marginY+11.1, {align: "left"});
-    pdf.text(`Anticipo: ${anticipo}`, marginX, marginY+ 11.6, {align: "left"});
-    pdf.text(`Kilometraje: ${kilometraje}`, marginX, marginY + 12.1, {align: "left"});
-    pdf.text(`Combustible: ${combustible}`, marginX, marginY + 12.6, {align: "left"});
-    pdf.text(`Presupuesto: ${presupuesto}`, marginX, marginY + 13.1, {align: "left"});
-    pdf.text(`Concepto: ${concepto}`, marginX, marginY + 13.6, {align: "left"});
-    pdf.text(`Observaciones: ${observaciones}`, marginX, marginY + 14.1 ,{align: "left"});
+    pdf.setFontSize(14);
 
-    await pdf.addImage("/img/Vector_Moto-removebg-preview.png", "PNG", ancho/2 - 5, marginY + 15,10,10 )
+    pdf.text("Datos del servicio", marginX + 7.80, marginY + 11.1, {align: "center"});
+    pdf.text(`Fecha del servicio: ${fecha}`, marginX + 7.80, marginY+11.6, {align: "center"});
+    pdf.text(`Anticipo: ${anticipo}`, marginX + 7.80, marginY+ 12.1, {align: "center"});
+    pdf.text(`Kilometraje: ${kilometraje}`, marginX + 7.80, marginY + 12.6, {align: "center"});
+    pdf.text(`Combustible: ${combustible}`, marginX + 7.80, marginY + 13.1, {align: "center"});
+    pdf.text(`Presupuesto: ${presupuesto}`, marginX + 7.80, marginY + 13.6, {align: "center"});
+    pdf.text(`Concepto: ${concepto}`, marginX + 7.80, marginY + 14.1, {align: "center"});
+    pdf.text(`Observaciones: ${observaciones}`, marginX + 7.80, marginY + 14.6 ,{align: "center"});
+
+    await pdf.addImage("/img/Logo-Moto-PDF.png", "PNG", ancho/2 - 5, marginY + 15,10,10 )
 
     pdf.save(`${id}`)
 }

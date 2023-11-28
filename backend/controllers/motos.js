@@ -15,8 +15,8 @@ const ObtenerMotos = async(_, res) => {
             ok: true,
             msg: "Motos obtenidas con exito",
             motos: motos
-        })
-
+        }) 
+        
     }catch(error){
         console.log(error);
         return res.status(500).json({

@@ -24,13 +24,23 @@ export default function Cliente({ cliente }: Props) {
   };
   return (
     <div className="container flex flex-col mx-auto items-center justify-center mb-22 text-center font-bold my-20">
-      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 mt-3">
         <h1 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
           Clientes
         </h1>
+        <div>
+          <button
+            type="button"
+            className="bg-gray-700 hover.bg-gray-700 text-white w-60 h-12 block rounded-lg"
+            onClick={() => handleEliminarDatos(datos._id)}
+          >
+            Eliminar
+          </button>
+        </div>
+
         <div className="mb-4">
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -45,7 +55,7 @@ export default function Cliente({ cliente }: Props) {
                 readOnly
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -61,8 +71,8 @@ export default function Cliente({ cliente }: Props) {
               />
             </div>
           </div>
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -77,7 +87,7 @@ export default function Cliente({ cliente }: Props) {
                 readOnly
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -109,7 +119,7 @@ export default function Cliente({ cliente }: Props) {
               readOnly
             />
           </div>
-          <div className="sm:col-span-4 justify-center">
+          <div>
             <label
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
               htmlFor=""
@@ -128,13 +138,13 @@ export default function Cliente({ cliente }: Props) {
         <div className="flex flex-wrap">
           {motoCliente.map((moto) => (
             <>
-              <div className="block grow w-1/2 px-6 py-3 bg-orange-400 border border-gray-200 rounded-lg shadow mt-2">
+              <div className="block grow w-1/2 px-6 py-3 bg-gray-400 border border-gray-300 rounded-lg shadow mt-2">
                 {moto.marca}
                 <div>
                   <Link href={`/motos/${moto._id}`}>
                     <button
                       type="button"
-                      className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                      className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
                     >
                       Ver
                     </button>
@@ -144,15 +154,6 @@ export default function Cliente({ cliente }: Props) {
             </>
           ))}
         </div>
-      </div>
-      <div>
-          <button
-            type="button"
-            className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-3"
-            onClick={() => handleEliminarDatos(datos._id)}
-          >
-            Eliminar
-          </button>
       </div>
     </div>
   );

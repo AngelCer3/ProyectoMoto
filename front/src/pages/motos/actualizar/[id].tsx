@@ -27,13 +27,13 @@ export default function Moto({ moto }: Props) {
   };
   return (
     <div className="container flex flex-col mx-auto items-center justify-center mb-22 text-center font-bold my-20">
-      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 text-center">
+      <div className="mx-auto p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 text-center">
         <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
           Moto
         </h3>
         <div className="mb-4">
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -48,7 +48,7 @@ export default function Moto({ moto }: Props) {
                 value={datosMoto.marca}
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -64,8 +64,8 @@ export default function Moto({ moto }: Props) {
               />
             </div>
           </div>
-          <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-            <div className="sm:col-span-4 justify-center">
+          <div>
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -80,7 +80,7 @@ export default function Moto({ moto }: Props) {
                 onChange={handleInputChangeMoto}
               />
             </div>
-            <div className="sm:col-span-4 justify-center">
+            <div>
               <label
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                 htmlFor=""
@@ -112,7 +112,7 @@ export default function Moto({ moto }: Props) {
               onChange={handleInputChangeMoto}
             />
           </div>
-          <div className="sm:col-span-4 justify-center">
+          <div>
             <label
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
               htmlFor=""
@@ -127,23 +127,23 @@ export default function Moto({ moto }: Props) {
               onChange={handleInputChangeMoto}
             />
           </div>
-          <div className="sm:col-span-4 justify-center">
+          <div>
             <button
-              className="bg-cyan-500 rounded text-white py-2 px-3 mt-3"
+              className="bg-gray-700 rounded text-white py-2 px-3 mt-3"
               onClick={handleActualizarMoto}
             >
               Actualizar Moto
             </button>
           </div>
-          <div className="sm:col-span-4 justify-center">
+          <div>
             <Link href="/motos">
-              <button className="bg-rose-500 rounded text-white py-2 px-3 mt-3">
-                Regresar
+              <button className="bg-gray-500 rounded text-white py-2 px-3 mt-3">
+                Regresar a la tabla
               </button>
             </Link>
           </div>
         </div>
-        <div className="relative overflow-x auto mt-5"></div>
+        <div></div>
       </div>
     </div>
   );

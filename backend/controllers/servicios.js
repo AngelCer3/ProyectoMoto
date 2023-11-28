@@ -74,7 +74,7 @@ const obtenerServicio = async(req, res) => {
                 msg: "No existe ese servicio por ID"
             })
         }
-
+        
         return res.json({
             ok: true,
             msg: "Servicios Obtenidos con exito",

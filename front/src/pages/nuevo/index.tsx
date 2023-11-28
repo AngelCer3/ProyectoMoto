@@ -3,7 +3,7 @@
 import { useForm } from "@/hooks/useForm";
 import { startObtenerClientes } from "@/store/slices/cliente/thunks";
 import { startObtenerMotos } from "@/store/slices/moto/thunks";
-import { startCrearServicio, startCrearServicioCliente, startCrearServicioClienteMoto } from "@/store/slices/servicio/thunks";
+import {startCrearServicio, startCrearServicioCliente, startCrearServicioClienteMoto} from "@/store/slices/servicio/thunks";
 import { AppDispatch, RootState } from "@/store/store";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -13,8 +13,8 @@ export default function page() {
   const [fromState, setFormState] = useState(true);
   const [fromState2, setFormState2] = useState(true);
   const [activeForm, setActiveForm] = useState<number | null>(null);
-  const [motoId, setMotoId] = useState("")
-  const [clienteId, setClienteId] = useState("")
+  const [motoId, setMotoId] = useState("");
+  const [clienteId, setClienteId] = useState("");
 
   const handleFormState = () => {
     setFormState(!fromState);
@@ -46,7 +46,7 @@ export default function page() {
     color: "",
     tipo: "",
   });
- 
+
   const router = useRouter();
   const [formServicio, handleInputChangeServicio] = useForm({
     fecha: "",
@@ -62,75 +62,83 @@ export default function page() {
   const dispatch: AppDispatch = useDispatch();
 
   const handleCrearServicio = () => {
-    if(fromState  && fromState2){
-      dispatch(startCrearServicioClienteMoto({...formServicio, moto: motoId}))
-     
-    }else if(fromState){
-      dispatch(startCrearServicioCliente({...formMoto, ...formServicio, cliente: clienteId}))
-      
-    }else{
-      dispatch(startCrearServicio({ ...formCliente, ...formMoto, ...formServicio }));
-      
+    if (fromState && fromState2) {
+      dispatch(
+        startCrearServicioClienteMoto({ ...formServicio, moto: motoId })
+      );
+    } else if (fromState) {
+      dispatch(
+        startCrearServicioCliente({
+          ...formMoto,
+          ...formServicio,
+          cliente: clienteId,
+        })
+      );
+    } else {
+      dispatch(
+        startCrearServicio({ ...formCliente, ...formMoto, ...formServicio })
+      );
     }
   };
   const { clientes } = useSelector((state: RootState) => state.cliente);
-  const {motos} = useSelector((state: RootState)=>state.moto);
-  const {servicioId} = useSelector((state: RootState)=>state.servicio);
+  const { motos } = useSelector((state: RootState) => state.moto);
+  const { servicioId } = useSelector((state: RootState) => state.servicio);
 
   useEffect(() => {
     dispatch(startObtenerClientes());
     dispatch(startObtenerMotos());
-
   }, []);
 
   useEffect(() => {
-    if(servicioId){
-      router.push(`servicios/${servicioId}`)
+    if (servicioId) {
+      router.push(`servicios/${servicioId}`);
     }
-  }, [servicioId])
-  console.log(servicioId)
+  }, [servicioId]);
+  console.log(servicioId);
   return (
-    <div className="container flex flex-col items-center justify-center mb-22 text-center font-bold my-20">
+    <div className="container flex flex-col items-center justify-center mb-22 text-center font-bold my-20 font-serif bg-gray-300">
       <div className="flex flex-col gap-3 text-center py-6 px-4">
-        <h1 className="text-center font-semibold text-4x1 text-red-600">
+        <h1 className="text-center font-sans text-4x1 text-gray-800">
           Agregar Cliente
         </h1>
         <button
-          className="bg-gray-500 hover.bg-gray-500 text-white font-bold py-2 px-4 border-b-4"
+          className="bg-gray-700 hover.bg-gray-700 text-white w-60 h-12 block rounded-lg"
           onClick={() => handleFormToggle(1)}
         >
           Cliente
         </button>
         {activeForm === 1 && (
-          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700">
             <button
               onClick={handleFormState}
-              className="bg-cyan-500 rounded text-white py-2 px-3 "
+              className="bg-gray-700 rounded text-white py-2 px-3"
               id="btn"
             >
-              Cambiar Formulario
+              Cambiar Opcion
             </button>
             {fromState ? (
               <div>
                 <div className="mb-4">
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div className="grid grid-flow-row">
+                    <div>
                       <label
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
+                        className="block mb-2 text-sm font-medium text-gray-800 dark:text-white mt-2"
                         htmlFor=""
                       >
                         {" "}
-                        Buscar por id{" "}
+                        Buscar Cliente{" "}
                       </label>
                       <input
-                        onChange={(e)=>setClienteId(e.target.value)}
+                        onChange={(e) => setClienteId(e.target.value)}
                         list="list-cliente"
                       />
 
                       <datalist id="list-cliente">
-                        {
-                          clientes.map(cliente => <option key={cliente._id} value={cliente._id}>{cliente.nombres} {cliente.apellidos}</option>)
-                        }
+                        {clientes.map((cliente) => (
+                          <option key={cliente._id} value={cliente._id}>
+                            {cliente.nombres} {cliente.apellidos}
+                          </option>
+                        ))}
                       </datalist>
                     </div>
                   </div>
@@ -139,14 +147,14 @@ export default function page() {
             ) : (
               /* Agregar datos del Cliente */
               <div>
-                <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
-                  Crear cliente
+                <h3 className="block mb-2 text-sm font-medium text-gray-800 dark:text-white mt-2">
+                  Agregar Cliente
                 </h3>
                 <div className="mb-4">
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div>
+                    <div>
                       <label
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
+                        className="block mb-2 text-sm font-medium text-gray-800 dark:text-white mt-2"
                         htmlFor=""
                       >
                         Nombres
@@ -159,7 +167,7 @@ export default function page() {
                         value={formCliente.nombres}
                       />
                     </div>
-                    <div className="sm:col-span-4 justify-center">
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -175,8 +183,8 @@ export default function page() {
                       />
                     </div>
                   </div>
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div>
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -191,7 +199,7 @@ export default function page() {
                         value={formCliente.telefono}
                       />
                     </div>
-                    <div className="sm:col-span-4 justify-center">
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -223,7 +231,7 @@ export default function page() {
                       value={formCliente.direccion}
                     />
                   </div>
-                  <div className="sm:col-span-4 justify-center">
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -241,35 +249,32 @@ export default function page() {
                 </div>
               </div>
             )}
-            ;
           </div>
         )}
       </div>
       {/* PArte de motos */}
       <div className="flex flex-col gap-3 text-center py-6 px-4">
-        <h1 className="text-center font-semibold text-4x1 text-red-600">
-          Agregar Moto
-        </h1>
+        <h1>Agregar Moto</h1>
         <button
-          className="bg-gray-500 hover.bg-gray-500 text-white font-bold py-2 px-4 border-b-4"
+          className="bg-gray-700 hover.bg-gray-700 text-white w-60 h-12 block rounded-lg"
           onClick={() => handleFormToggle(2)}
         >
           Moto
         </button>
         {activeForm === 2 && (
-          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mt-3">
+          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 mt-3">
             <button
               onClick={handleFormState2}
-              className="bg-cyan-500 rounded text-white py-2 px-3 "
+              className="bg-gray-700 rounded text-white py-2 px-3 "
               id="btn"
             >
-              Cambiar Formulario
+              Cambiar Opcion
             </button>
             {fromState2 && fromState ? (
               <div>
                 <div className="mb-4">
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div>
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -278,18 +283,19 @@ export default function page() {
                         Buscar moto{" "}
                       </label>
                       <input
-                      onChange={(e) => setMotoId(e.target.value)}
+                        onChange={(e) => setMotoId(e.target.value)}
                         list="list-moto"
                       />
 
                       <datalist id="list-moto">
-                        {
-                          motos.map(moto => <option key={moto._id} value={moto._id}>{moto.marca} {moto.modelo} {moto.color}</option>)
-                        }
+                        {motos.map((moto) => (
+                          <option key={moto._id} value={moto._id}>
+                            {moto.marca} {moto.modelo} {moto.color}
+                          </option>
+                        ))}
                       </datalist>
                     </div>
                   </div>
-                
                 </div>
               </div>
             ) : (
@@ -298,8 +304,8 @@ export default function page() {
                   Crear Moto
                 </h3>
                 <div className="mb-4">
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div>
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -314,7 +320,7 @@ export default function page() {
                         value={formMoto.marca}
                       />
                     </div>
-                    <div className="sm:col-span-4 justify-center">
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -330,8 +336,8 @@ export default function page() {
                       />
                     </div>
                   </div>
-                  <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                    <div className="sm:col-span-4 justify-center">
+                  <div>
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -346,7 +352,7 @@ export default function page() {
                         value={formMoto.cilindrada}
                       />
                     </div>
-                    <div className="sm:col-span-4 justify-center">
+                    <div>
                       <label
                         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                         htmlFor=""
@@ -378,7 +384,7 @@ export default function page() {
                       value={formMoto.color}
                     />
                   </div>
-                  <div className="sm:col-span-4 justify-center">
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -396,30 +402,27 @@ export default function page() {
                 </div>
               </div>
             )}
-            ;
           </div>
         )}
       </div>{" "}
       {/* Parte de servicio */}
       <div className="flex flex-col gap-3 text-center py-6 px-4">
-        <h1 className="text-center font-semibold text-4x1 text-red-600">
-          Agregar Servicio
-        </h1>
+        <h1>Agregar Servicio</h1>
         <button
-          className="bg-gray-500 hover.bg-gray-500 text-white font-bold py-2 px-4 border-b-4"
+          className="bg-gray-700 hover.bg-gray-700 text-white w-60 h-12 block rounded-lg"
           onClick={() => handleFormToggle(3)}
         >
           Servicio
         </button>
         {activeForm === 3 && (
-          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mt-3">
+          <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-pink-800 dark:border-pink-700 mt-3">
             <div>
               <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2">
                 Crear Servicio
               </h3>
               <div className="mb-4">
-                <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                  <div className="sm:col-span-4 justify-center">
+                <div>
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -434,7 +437,7 @@ export default function page() {
                       value={formServicio.fecha}
                     />
                   </div>
-                  <div className="sm:col-span-4 justify-center">
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -450,8 +453,8 @@ export default function page() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-flow-row sm:grid-flow-col gap-3">
-                  <div className="sm:col-span-4 justify-center">
+                <div>
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -466,7 +469,7 @@ export default function page() {
                       value={formServicio.kilometraje}
                     />
                   </div>
-                  <div className="sm:col-span-4 justify-center">
+                  <div>
                     <label
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                       htmlFor=""
@@ -498,7 +501,7 @@ export default function page() {
                     value={formServicio.concepto}
                   />
                 </div>
-                <div className="sm:col-span-4 justify-center">
+                <div>
                   <label
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
                     htmlFor=""
@@ -513,7 +516,7 @@ export default function page() {
                     value={formServicio.presupuesto}
                   />
                 </div>
-                <div className="sm:col-span-4 justify-center">
+                <div>
                   <label
                     htmlFor=""
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
@@ -529,7 +532,7 @@ export default function page() {
                   />
                 </div>
               </div>
-              <div className="sm:col-span-4 justify-center">
+              <div>
                 <label
                   htmlFor=""
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2"
@@ -546,13 +549,12 @@ export default function page() {
               </div>
 
               <button
-                className="bg-rose-500 rounded text-white py-2 px-3 mt-3"
+                className="bg-gray-700 hover.bg-gray-700 text-white w-60 h-12 block rounded-lg mt-4 text-center"
                 onClick={handleCrearServicio}
               >
                 Guardar Datos
               </button>
             </div>
-            ;
           </div>
         )}
       </div>
